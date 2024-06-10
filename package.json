@@ -1,0 +1,21 @@
+{
+  "name": "react-webpack",
+  "version": "0.0.1",
+  "description": "react demo",
+  "main": "index.js",
+  "author": "ZhongYT",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@eslint/js": "^9.4.0",
+    "eslint": "8.x",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.34.2",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "globals": "^15.4.0",
+    "prettier": "3.2.5",
+    "stylelint": "^16.6.1",
+    "stylelint-config-standard": "^36.0.0",
+    "typescript-eslint": "^7.12.0"
+  }
+}
