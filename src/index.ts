@@ -1,1 +1,3 @@
-var a = () => {};
+const a = () => {};
+
+console.error(a);
