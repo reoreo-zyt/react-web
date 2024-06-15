@@ -6,6 +6,8 @@ module.exports = {
   },
   extends: [
     "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended", // 使用推荐的React规则
     "plugin:react-hooks/recommended", // 使用推荐的React Hooks规则
     "plugin:jsx-a11y/recommended", // 使用推荐的a11y规则
