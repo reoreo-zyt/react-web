@@ -86,10 +86,19 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.(tsx?|js)$/,
+        loader: "babel-loader",
+        options: { cacheDirectory: true },
+        exclude: /node_modules/,
+      },
     ],
   },
   entry: {
-    app: resolve(PROJECT_PATH, "./src/app.js"),
+    app: resolve(PROJECT_PATH, "./src/index.tsx"),
+  },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js", ".json"],
   },
   output: {
     filename: `js/[name]${isDev ? "" : ".[hash:8]"}.js`, // 开发模式不需要 hash 值
