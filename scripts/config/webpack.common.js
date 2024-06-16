@@ -33,7 +33,9 @@ const getCssLoaders = (importLoaders) => [
   {
     loader: "css-loader",
     options: {
-      modules: false,
+      modules: {
+        localIdentName: "[local]__[hash:base64:5]",
+      },
       sourceMap: isDev,
       importLoaders,
     },
@@ -99,6 +101,11 @@ module.exports = {
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".json"],
+    alias: {
+      "@src": resolve(PROJECT_PATH, "./src"),
+      "@components": resolve(PROJECT_PATH, "./src/components"),
+      "@utils": resolve(PROJECT_PATH, "./src/utils"),
+    },
   },
   output: {
     filename: `js/[name]${isDev ? "" : ".[hash:8]"}.js`, // 开发模式不需要 hash 值

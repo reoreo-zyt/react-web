@@ -23,4 +23,12 @@ module.exports = {
   rules: {
     // 在这里添加或覆盖规则
   },
+  settings: {
+    "import/resolver": {
+      node: {
+        extensions: [".tsx", ".ts", ".js", ".json"],
+      },
+      typescript: {},
+    },
+  },
 };
