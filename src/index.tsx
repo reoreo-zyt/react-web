@@ -2,8 +2,12 @@ import { createRoot } from "react-dom/client";
 import App from "./app";
 import React from "react";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const container: any = document.getElementById("root");
-const root = createRoot(container);
+const container = document.getElementById("root");
 
-root.render(<App />);
+// 非空断言，确保 container 不是 null
+if (container !== null) {
+  const root = createRoot(container);
+  root.render(<App />);
+} else {
+  console.error("Failed to find the root element");
+}
