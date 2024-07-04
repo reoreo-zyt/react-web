@@ -8,6 +8,7 @@ module.exports = merge(common, {
   stats: "errors-only", // 终端仅打印 error
   devtool: "eval-source-map",
   devServer: {
+    historyApiFallback: false, // react-router 添加路由刷新页面后显示404，刷新之后history中的数据没有保存
     host: SERVER_HOST, // 指定 host，不设置的话默认是 localhost
     port: SERVER_PORT, // 指定端口，默认是8080
     client: {

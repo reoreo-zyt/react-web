@@ -12,7 +12,7 @@ const routes = [
     ),
     children: [
       {
-        path: "/home",
+        path: "/",
         element: (
           <LazyImportComponent
             lazyChildren={lazy(() => import("@src/views/Home"))}

@@ -6,7 +6,7 @@ export default function Layout() {
     <div className="main">
       <div className="header">
         <div className="nav">
-          <NavLink to="/home">首页</NavLink>
+          <NavLink to="/">首页</NavLink>
           <NavLink to="/about">关于我们</NavLink>
           <NavLink to="/objects">产品中心</NavLink>
           <NavLink to="/news">新闻资讯</NavLink>
@@ -15,6 +15,7 @@ export default function Layout() {
       </div>
       {/* 类似vue的router-view组件 */}
       <Outlet />
+      <div className="footer"></div>
     </div>
   );
 }
