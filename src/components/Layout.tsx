@@ -1,32 +1,9 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
-import MButton from "@components/MButton";
+import { Outlet } from "react-router-dom";
+import MTabs from "@components/MTabs";
 import "@src/scss/Layout.scss";
 
 export default function Layout() {
-  const navLinkData = [
-    {
-      path: "/",
-      name: "首页",
-    },
-    {
-      path: "/about",
-      name: "关于我们",
-    },
-    {
-      path: "/objects",
-      name: "产品中心",
-    },
-    {
-      path: "/news",
-      name: "新闻资讯",
-    },
-    {
-      path: "/contact",
-      name: "联系我们",
-    },
-  ];
-
   return (
     <div className="main">
       <div className="header">
@@ -39,11 +16,7 @@ export default function Layout() {
             <div className="title-header-right">TEL：400-8888-8888</div>
           </div>
           <div className="nav-links">
-            {navLinkData.map((item, index) => (
-              <NavLink key={index} to={item.path}>
-                <MButton title={item.name}></MButton>
-              </NavLink>
-            ))}
+            <MTabs></MTabs>
           </div>
         </div>
       </div>

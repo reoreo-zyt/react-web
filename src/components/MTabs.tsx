@@ -4,34 +4,7 @@ import { makeStyles, Theme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-
-interface TabPanelProps {
-  children?: React.ReactNode;
-  index: any;
-  value: any;
-}
-
-function TabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box p={3}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
+import { useNavigate } from "react-router-dom";
 
 function a11yProps(index: any) {
   return {
@@ -51,8 +24,38 @@ export default function SimpleTabs() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
+  const navLinkData = [
+    {
+      path: "/",
+      name: "首页",
+    },
+    {
+      path: "/about",
+      name: "关于我们",
+    },
+    {
+      path: "/objects",
+      name: "产品中心",
+    },
+    {
+      path: "/news",
+      name: "新闻资讯",
+    },
+    {
+      path: "/contact",
+      name: "联系我们",
+    },
+  ];
+
+  const navigate = useNavigate();
+
   const handleChange = (event: React.ChangeEvent<object>, newValue: number) => {
     setValue(newValue);
+    clickTab(navLinkData[newValue].path);
+  };
+
+  const clickTab = (path: string) => {
+    navigate(path);
   };
 
   return (
@@ -63,20 +66,11 @@ export default function SimpleTabs() {
           onChange={handleChange}
           aria-label="simple tabs example"
         >
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
+          {navLinkData.map((item, index) => (
+            <Tab key={index} label={item.name} {...a11yProps(index)}></Tab>
+          ))}
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index={0}>
-        Item One
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        Item Two
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Item Three
-      </TabPanel>
     </div>
   );
 }
