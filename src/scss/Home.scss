@@ -3,3 +3,14 @@
   justify-content: center;
   align-items: center;
 }
+
+.card-container2,
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-container2 .card-item {
+  margin: 0 10px;
+}
