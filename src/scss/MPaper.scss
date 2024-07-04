@@ -1,0 +1,13 @@
+.paper {
+  width: 277px;
+  height: 277px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  .img {
+    width: 217px;
+    height: 217px;
+  }
+}
