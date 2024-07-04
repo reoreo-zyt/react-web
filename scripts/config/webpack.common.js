@@ -28,20 +28,7 @@ const PLUGINS = [
   }),
 ];
 
-const getCssLoaders = (importLoaders) => [
-  "style-loader",
-  {
-    loader: "css-loader",
-    options: {
-      modules: {
-        localIdentName: "[local]__[hash:base64:5]",
-      },
-      sourceMap: isDev,
-      importLoaders,
-    },
-  },
-  "postcss-loader",
-];
+const getCssLoaders = () => ["style-loader", "css-loader", "postcss-loader"];
 
 module.exports = {
   mode: isDev ? "development" : "production",
@@ -49,12 +36,12 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: getCssLoaders(1),
+        use: getCssLoaders(),
       },
       {
         test: /\.scss$/,
         use: [
-          ...getCssLoaders(2),
+          ...getCssLoaders(),
           {
             loader: "sass-loader",
             options: {
