@@ -61,6 +61,10 @@ export default function MCard({
     },
   });
   const classes = useStyles();
+  const handleNavigateTo = () => {
+    navigate("/about");
+    // 通知 tab 组件切换
+  };
   return (
     <Card className={classes.root}>
       <CardActionArea>
@@ -99,7 +103,7 @@ export default function MCard({
             size="small"
             color="primary"
             variant="contained"
-            onClick={() => navigate("/about")}
+            onClick={handleNavigateTo}
           >
             更多
           </Button>

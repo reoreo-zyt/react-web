@@ -12,12 +12,13 @@ import PhoneIcon from "@material-ui/icons/Phone";
 const useStyles = makeStyles({
   root: {
     width: 1200,
-    color: "#fff",
     background: "#3f51b5",
   },
-  ".Mui-selected": {
+  action: {
     color: "#fff !important",
-    fontSize: "14px",
+  },
+  "action.active": {
+    color: "#fff !important",
   },
 });
 
@@ -53,16 +54,19 @@ export default function Layout() {
           className={classes.root}
         >
           <BottomNavigationAction
-            label="地址：xx市xx区xx镇xx路"
+            label="地址：xx市xx区xx镇"
             icon={<LocationOnIcon />}
+            className={classes.action}
           />
           <BottomNavigationAction
             label="电话：010-80000000"
             icon={<PhoneIcon />}
+            className={classes.action}
           />
           <BottomNavigationAction
             label="邮箱：xx@yourdomain.com"
             icon={<EmailIcon />}
+            className={classes.action}
           />
         </BottomNavigation>
       </div>

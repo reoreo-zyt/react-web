@@ -4,7 +4,7 @@ import { makeStyles, Theme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function a11yProps(index: any) {
   return {
@@ -20,10 +20,10 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export default function SimpleTabs() {
+export default function MTabs() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-
+  const location = useLocation();
   const navLinkData = [
     {
       path: "/",
@@ -57,6 +57,12 @@ export default function SimpleTabs() {
   const clickTab = (path: string) => {
     navigate(path);
   };
+
+  React.useEffect(() => {
+    const pathName = location.pathname;
+    const index = navLinkData.findIndex((item) => item.path === pathName);
+    setValue(index);
+  }, [location]);
 
   return (
     <div className={classes.root}>
