@@ -11,6 +11,8 @@ import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import { TransitionProps } from "@material-ui/core/transitions";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -34,6 +36,19 @@ const useStyles = makeStyles((theme: Theme) =>
       marginLeft: theme.spacing(2),
       flex: 1,
     },
+    content: {
+      width: "100%",
+    },
+    contentBox: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      height: "100%",
+    },
+    media: {
+      height: 140,
+    },
   }),
 );
 
@@ -54,36 +69,90 @@ export default function MPaper() {
       src: "/images/gjdkbjd.png",
       text: "高精度可变角度光源系统",
       show: false,
+      details: {
+        imgs: [
+          "/images/gjdkbjd-1.png",
+          "/images/gjdkbjd.png",
+          "/images/gjdkbjd-3.png",
+        ],
+      },
     },
     {
       alt: "htmbq",
       src: "/images/htmbq.png",
       text: "哈特曼波前传感器光机系统",
       show: false,
+      details: {
+        imgs: [
+          "/images/htmbq-1.png",
+          "/images/htmbq.png",
+          "/images/htmbq-3.png",
+          "/images/htmbq-4.png",
+        ],
+      },
     },
     {
       alt: "jgjrjz",
       src: "/images/jgjrjz.png",
       text: "激光加热基座光学系统",
       show: false,
+      details: {
+        imgs: [
+          "/images/jgjrjz.png",
+          "/images/jgjrjz-1.png",
+          "/images/jgjrjz-2.png",
+          "/images/jgjrjz-3.png",
+          "/images/jgjrjz-4.png",
+          "/images/jgjrjz-5.png",
+          "/images/jgjrjz-6.png",
+        ],
+      },
     },
     {
       alt: "kbclk",
       src: "/images/kbclk.png",
       text: "可编程轮廓涂版机",
       show: false,
+      details: {
+        imgs: [
+          "/images/kbclk.png",
+          "/images/kbclk-2.png",
+          "/images/kbclk-3.png",
+          "/images/kbclk-4.png",
+          "/images/kbclk-5.png",
+        ],
+      },
     },
     {
       alt: "lztly",
       src: "/images/lztly.png",
       text: "量子陀螺仪演示系统",
       show: false,
+      details: {
+        imgs: [
+          "/images/lztly-1.png",
+          "/images/lztly-2.png",
+          "/images/lztly-3.png",
+          "/images/lztly-4.png",
+          "/images/lztly.png",
+          "/images/lztly-5.png",
+        ],
+      },
     },
     {
       alt: "syhgq",
       src: "/images/syhgq.png",
       text: "商业化光纤激光发射系统样机",
       show: false,
+      details: {
+        imgs: [
+          "/images/syhgq-1.png",
+          "/images/syhgq-2.png",
+          "/images/syhgq-3.png",
+          "/images/syhgq-4.png",
+          "/images/syhgq-5.png",
+        ],
+      },
     },
   ]);
   // eslint-disable-next-line prefer-const
@@ -176,6 +245,65 @@ export default function MPaper() {
               </Typography>
             </Toolbar>
           </AppBar>
+          <div className={classes.content}>
+            <div className={classes.contentBox}>
+              {/* <Typography variant="h2" gutterBottom>
+                h2. Heading
+              </Typography>
+              <Typography variant="h3" gutterBottom>
+                h3. Heading
+              </Typography>
+              <Typography variant="h4" gutterBottom>
+                h4. Heading
+              </Typography>
+              <Typography variant="h5" gutterBottom>
+                h5. Heading
+              </Typography>
+              <Typography variant="h6" gutterBottom>
+                h6. Heading
+              </Typography>
+              <Typography variant="subtitle1" gutterBottom>
+                subtitle1. Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit. Quos blanditiis tenetur
+              </Typography>
+              <Typography variant="subtitle2" gutterBottom>
+                subtitle2. Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit. Quos blanditiis tenetur
+              </Typography>
+              <Typography variant="body1" gutterBottom>
+                body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Quos blanditiis tenetur unde suscipit, quam beatae rerum
+                inventore consectetur, neque doloribus, cupiditate numquam
+                dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+              </Typography>
+              <Typography variant="body2" gutterBottom>
+                body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Quos blanditiis tenetur unde suscipit, quam beatae rerum
+                inventore consectetur, neque doloribus, cupiditate numquam
+                dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+              </Typography>
+              <Typography variant="button" display="block" gutterBottom>
+                button text
+              </Typography>
+              <Typography variant="caption" display="block" gutterBottom>
+                caption text
+              </Typography>
+              <Typography variant="overline" display="block" gutterBottom>
+                overline text
+              </Typography> */}
+              <PhotoProvider>
+                {images[clickIndex].details?.imgs.map((item, index) => (
+                  <PhotoView src={item} key={index}>
+                    <img
+                      src={item}
+                      alt=""
+                      style={{ width: "50%", height: "50%" }}
+                    />
+                  </PhotoView>
+                ))}
+              </PhotoProvider>
+            </div>
+          </div>
         </Dialog>
       ) : null}
     </div>
