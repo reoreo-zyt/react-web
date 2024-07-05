@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import "@src/scss/MCard.scss";
 
-MCard.propTypes = {
+MCard.propTypes = () => ({
   maxWidth: {
     type: "number",
     defaultValue: 1200,
@@ -39,7 +39,7 @@ MCard.propTypes = {
     type: "boolean",
     defaultValue: false,
   },
-};
+});
 
 type MCardBodyType = {
   text: string;

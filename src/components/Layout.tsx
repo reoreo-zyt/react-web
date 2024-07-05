@@ -64,7 +64,7 @@ export default function Layout() {
             className={classes.action}
           />
           <BottomNavigationAction
-            label="邮箱：xx@yourdomain.com"
+            label="邮箱：@domain.com"
             icon={<EmailIcon />}
             className={classes.action}
           />

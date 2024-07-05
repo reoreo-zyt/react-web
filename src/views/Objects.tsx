@@ -51,13 +51,13 @@ export default function Objects() {
     {
       alt: "gjdkbjd",
       src: "/images/gjdkbjd.png",
-      text: "商业化光纤激光发射系统样机",
+      text: "高精度可变角度光源系统",
       show: false,
     },
     {
       alt: "htmbq",
       src: "/images/htmbq.png",
-      text: "商业化光纤激光发射系统样机",
+      text: "哈特曼波前传感器光机系统",
       show: false,
     },
     {
