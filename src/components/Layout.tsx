@@ -19,6 +19,9 @@ import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
+import { useDispatch, useSelector } from "react-redux";
+import globalSlice from "@src/store/global";
+import GlobalState from "@src/typings/store";
 
 const useStyles = makeStyles({
   list: {
@@ -42,13 +45,14 @@ const useStyles = makeStyles({
 type Anchor = "top" | "left" | "bottom" | "right";
 
 export default function Layout() {
+  const { mobileFalse, mobileTure } = globalSlice.actions;
+
+  const isMobile = useSelector((state: GlobalState) => state.isMobile);
+  const dispatch = useDispatch();
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  // TODO: 将 isMobile 改为全局状态，存入 redux
-  // eslint-disable-next-line prefer-const
-  let [isMobile, setMobile] = React.useState(
-    window.innerHeight < 640 ? false : true,
-  );
+  window.innerHeight < 640 ? dispatch(mobileTure()) : dispatch(mobileFalse());
+
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -59,10 +63,12 @@ export default function Layout() {
   useEffect(() => {
     // 监听
     window.addEventListener("resize", () =>
-      window.innerHeight < 640 ? setMobile(false) : setMobile(true),
+      window.innerHeight < 640
+        ? dispatch(mobileTure())
+        : dispatch(mobileFalse()),
     );
     // 销毁
-    return () => window.removeEventListener("resize", () => setMobile(false));
+    return () => window.removeEventListener("resize", () => {});
   });
 
   const toggleDrawer =
@@ -129,7 +135,7 @@ export default function Layout() {
 
   return (
     <div className="main">
-      {isMobile ? (
+      {!isMobile ? (
         <AppBar position="static">
           <Toolbar>
             <IconButton
