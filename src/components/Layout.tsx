@@ -46,7 +46,9 @@ export default function Layout() {
   const [value, setValue] = React.useState(0);
   // TODO: 将 isMobile 改为全局状态，存入 redux
   // eslint-disable-next-line prefer-const
-  let [isMobile, setMobile] = React.useState(false);
+  let [isMobile, setMobile] = React.useState(
+    window.innerHeight < 640 ? false : true,
+  );
   const [state, setState] = React.useState({
     top: false,
     left: false,
