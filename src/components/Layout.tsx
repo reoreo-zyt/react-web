@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Outlet, useNavigate } from "react-router-dom";
 import MTabs from "@components/MTabs";
@@ -44,7 +44,9 @@ type Anchor = "top" | "left" | "bottom" | "right";
 export default function Layout() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  let [isMobile] = React.useState(false);
+  // TODO: 将 isMobile 改为全局状态，存入 redux
+  // eslint-disable-next-line prefer-const
+  let [isMobile, setMobile] = React.useState(false);
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -52,7 +54,14 @@ export default function Layout() {
     right: false,
   });
 
-  isMobile = window.innerHeight < 640 ? false : true;
+  useEffect(() => {
+    // 监听
+    window.addEventListener("resize", () =>
+      window.innerHeight < 640 ? setMobile(false) : setMobile(true),
+    );
+    // 销毁
+    return () => window.removeEventListener("resize", () => setMobile(false));
+  });
 
   const toggleDrawer =
     (anchor: Anchor, open: boolean) =>
