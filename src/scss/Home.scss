@@ -4,11 +4,31 @@
   align-items: center;
 }
 
-.card-container2,
-.card-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media screen and (width >=969px) {
+  /* stylelint-disable-next-line rule-empty-line-before */
+  .card-container2,
+  .card-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .card-list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+@media screen and (width >=360px) and (width <=969px) {
+  /* stylelint-disable-next-line rule-empty-line-before */
+  .card-container2 {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .card-container2 .card-item {
