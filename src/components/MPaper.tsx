@@ -56,8 +56,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function MPaper() {
   const isMobile = useSelector((state: GlobalState) => state.isMobile);
-  console.error(isMobile);
-
   const classes = useStyles();
   // 使用useState来控制key值，即重新渲染的触发条件
   // eslint-disable-next-line prefer-const
@@ -223,6 +221,10 @@ export default function MPaper() {
               <animated.div className="text" style={{ ...springs }}>
                 {item.text}
               </animated.div>
+            ) : !isMobile ? (
+              <div className="text" style={{}}>
+                {item.text}
+              </div>
             ) : null}
           </Paper>
         ))}

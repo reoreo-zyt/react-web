@@ -50,8 +50,8 @@ export default function Home() {
     {
       maxWidth: maxWidth2,
       imgUrl: "/images/message2.jpg",
-      imgTitle: "我国研制出世界最大容量现场组装式变压器",
-      title: "我国研制出世界最大容量现场组装式变压器",
+      imgTitle: "我国研制出世界最大容量组装式变压器",
+      title: "我国研制出世界最大容量组装式变压器",
       body: [
         {
           text: "特高压现场组装式变研制领域再获大突破。我国研制出世界最大容量现场组装式变压器",

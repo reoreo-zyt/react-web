@@ -28,8 +28,8 @@ export default function News() {
     {
       maxWidth: maxWidth2,
       imgUrl: "/images/message2.jpg",
-      imgTitle: "我国研制出世界最大容量现场组装式变压器",
-      title: "我国研制出世界最大容量现场组装式变压器",
+      imgTitle: "我国研制出世界最大容量组装式变压器",
+      title: "我国研制出世界最大容量组装式变压器",
       body: [
         {
           text: "特高压现场组装式变研制领域再获大突破。我国研制出世界最大容量现场组装式变压器",
@@ -72,11 +72,13 @@ export default function News() {
         {/* <MTitle {...MTitleList[0]}></MTitle> */}
         <MTitle {...MTitleList[1]}></MTitle>
         <div className="card-container2">
-          {MCardList2.map((item, index) => (
-            <div key={index} className="card-item">
-              <MCard {...item}></MCard>
-            </div>
-          ))}
+          <div className="card-list">
+            {MCardList2.map((item, index) => (
+              <div key={index} className="card-item">
+                <MCard {...item}></MCard>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

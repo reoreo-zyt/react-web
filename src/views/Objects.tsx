@@ -13,6 +13,8 @@ import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import StarBorder from "@material-ui/icons/StarBorder";
 import Pagination from "@material-ui/lab/Pagination";
+import GlobalState from "@src/typings/store";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -42,6 +44,7 @@ export default function Objects() {
   const MTitleList = [{ title: "产品中心", desc: "Product Center" }];
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
+  const isMobile = useSelector((state: GlobalState) => state.isMobile);
 
   const handleClick = () => {
     setOpen(!open);
@@ -92,36 +95,38 @@ export default function Objects() {
         <MTitle {...MTitleList[0]}></MTitle>
       </div>
       <div className={classes.objectRoot}>
-        <List
-          component="nav"
-          aria-labelledby="nested-list-subheader"
-          subheader={
-            <ListSubheader component="div" id="nested-list-subheader">
-              产品列表
-            </ListSubheader>
-          }
-          className={classes.root}
-        >
-          <ListItem button onClick={handleClick}>
-            <ListItemIcon>
-              <InboxIcon />
-            </ListItemIcon>
-            <ListItemText primary="所有产品" />
-            {open ? <ExpandLess /> : <ExpandMore />}
-          </ListItem>
-          <Collapse in={open} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              {images.map((item, index) => (
-                <ListItem button className={classes.nested} key={index}>
-                  <ListItemIcon>
-                    <StarBorder />
-                  </ListItemIcon>
-                  <ListItemText primary={item.text} />
-                </ListItem>
-              ))}
-            </List>
-          </Collapse>
-        </List>
+        {isMobile ? (
+          <List
+            component="nav"
+            aria-labelledby="nested-list-subheader"
+            subheader={
+              <ListSubheader component="div" id="nested-list-subheader">
+                产品列表
+              </ListSubheader>
+            }
+            className={classes.root}
+          >
+            <ListItem button onClick={handleClick}>
+              <ListItemIcon>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="所有产品" />
+              {open ? <ExpandLess /> : <ExpandMore />}
+            </ListItem>
+            <Collapse in={open} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                {images.map((item, index) => (
+                  <ListItem button className={classes.nested} key={index}>
+                    <ListItemIcon>
+                      <StarBorder />
+                    </ListItemIcon>
+                    <ListItemText primary={item.text} />
+                  </ListItem>
+                ))}
+              </List>
+            </Collapse>
+          </List>
+        ) : null}
         <div className={classes.PaperRight}>
           <MPaper></MPaper>
         </div>
