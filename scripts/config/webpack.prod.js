@@ -7,7 +7,13 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const PLUGINS = [
   new CopyWebpackPlugin({
-    patterns: [{ from: "public/images", to: "./images" }],
+    patterns: [
+      { from: "public/images", to: "./images" },
+      {
+        from: "public/baidu_verify_codeva-mKvIqrFeTu.html",
+        to: "./",
+      },
+    ],
   }),
   new CleanWebpackPlugin(),
 ];
