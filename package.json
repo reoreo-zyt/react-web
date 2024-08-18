@@ -13,7 +13,7 @@
     "not op_mini all"
   ],
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server --config ./scripts/config/webpack.dev.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./scripts/config/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config ./scripts/config/webpack.prod.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
