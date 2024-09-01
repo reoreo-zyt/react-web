@@ -9,6 +9,7 @@ import Button from "@material-ui/core/Button";
 import { useNavigate } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import "@src/scss/MCard.scss";
+import Slide from "./Slide";
 
 MCard.propTypes = () => ({
   maxWidth: {
@@ -65,6 +66,11 @@ export default function MCard({
     navigate("/about");
     // 通知 tab 组件切换
   };
+  const images = [
+    "/images/Card1-1.jpg",
+    "/images/Card1-2.jpg",
+    "/images/Card1-3.jpg",
+  ];
   return (
     <Card className={classes.root}>
       <CardActionArea>
@@ -77,9 +83,13 @@ export default function MCard({
             title={title}
           />
         ) : (
-          <div className="card-img">
-            <img src={imgUrl} alt={imgTitle} title={imgTitle} />
+          <div className="slide">
+            <Slide images={images} intervalTime={5000} />
           </div>
+          // <div className="card-img">
+          //   <Slide images={images} intervalTime={3000} />
+          //   {/* <img src={imgUrl} alt={imgTitle} title={imgTitle} /> */}
+          // </div>
         )}
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
